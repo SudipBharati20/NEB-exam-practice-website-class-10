@@ -9,9 +9,10 @@ let activeMarks  = "1mark";
 let openItems    = new Set();
 
 const marksLabels = {
-  "1mark":  "1 Mark",
-  "2mark":  "2 Marks",
-  "34mark": "3/4 Marks"
+  "1mark":   "1 Mark",
+  "2mark":   "2 Marks",
+  "34mark":  "3/4 Marks",
+  "longmark": "Long Questions"
 };
 
 // ---- Render unit navigation buttons ----
@@ -65,9 +66,10 @@ function renderMarksTabs() {
 
 // ---- Render stats cards ----
 function renderStats(lesson) {
-  const t1  = lesson["1mark"]?.length  || 0;
-  const t2  = lesson["2mark"]?.length  || 0;
-  const t34 = lesson["34mark"]?.length || 0;
+  const t1   = lesson["1mark"]?.length    || 0;
+  const t2   = lesson["2mark"]?.length    || 0;
+  const t34  = lesson["34mark"]?.length   || 0;
+  const tLng = lesson["longmark"]?.length || 0;
   return `<div class="stats-row">
     <div class="stat-card">
       <div class="label">1 mark questions</div>
@@ -80,6 +82,10 @@ function renderStats(lesson) {
     <div class="stat-card">
       <div class="label">3/4 mark questions</div>
       <div class="value">${t34}</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Long questions</div>
+      <div class="value">${tLng}</div>
     </div>
   </div>`;
 }
